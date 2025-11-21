@@ -15,6 +15,6 @@ export class Asistente {
   @Column({ type: 'varchar', length: 200 })
   email: string;
 
-  @ManyToOne(() => Evento, (evento) => evento.asistentes)
-  eventos: Evento[];
+  @ManyToOne(() => Evento, (evento) => evento.asistentes, { nullable: false })
+  evento: Evento;
 }

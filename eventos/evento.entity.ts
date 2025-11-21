@@ -3,8 +3,7 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
-  ManyToMany,
-  JoinTable,
+  OneToMany,
 } from 'typeorm';
 import { Ponente } from '../ponentes/ponente.entity';
 import { Auditorio } from '../auditorios/auditorio.entity';
@@ -34,13 +33,10 @@ export class Evento {
   ponente: Ponente;
 
   @ManyToOne(() => Auditorio, (auditorio) => auditorio.eventos, {
-    nullable: true,
+    nullable: false,
   })
-  auditorio: Auditorio | null;
+  auditorio: Auditorio;
 
-  @OneToMany(() => Asistente, (asistente) => asistente.eventos, {
-    cascade: true,
-  })
-  @JoinTable()
+  @OneToMany(() => Asistente, (asistente) => asistente.evento)
   asistentes: Asistente[];
 }
