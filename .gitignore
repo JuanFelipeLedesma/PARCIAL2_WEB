@@ -54,3 +54,17 @@ pids
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# temp directory
+.tmp
+tmp/
+
+# -------------------------
+# Postgres / Docker volumes
+# -------------------------
+
+# carpeta donde docker guarda los datos de Postgres (la que te sale con pg_hba.conf, PG_VERSION, etc.)
+postgres/
+pgdata/
+data/
+docker-data/
